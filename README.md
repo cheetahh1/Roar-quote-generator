@@ -1,36 +1,50 @@
+# Random Quote Generator (Roar) - In Empiseysocheata
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Brief Description
+A Random Quote Generator website where users can get daily quotes, sign up, and log in. Users can also save favorite quotes.  
+**Technologies used:** Next.js, React, Tailwind CSS, Supabase.
 
-First, run the development server:
+---
+## Project Setup & Architecture
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Clone the repository and navigate into it:  
+`git clone https://github.com/your-username/your-repo.git`  
+`cd your-repo`  
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Install dependencies:  
+`npm install`  
+or  
+`yarn install`  
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Install Supabase dependencies:  
+`npm install @supabase/supabase-js`  
+or
+`yarn add @supabase/supabase-js`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Set up environment variables by creating a `.env.local` file in the root directory with:  
+`NEXT_PUBLIC_SUPABASE_URL=your_supabase_url`  
+`NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key`  
 
-## Learn More
+Run the development server:  
+`npm run dev`  
+or  
+`yarn dev`  
 
-To learn more about Next.js, take a look at the following resources:
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Project Architecture:  
+- Frontend: Next.js app (React) runs in the browser. Users interact with the UI to view quotes, sign up, and log in. Requests for quotes or authentication are sent to backend API routes.  
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Backend: API route files (e.g., `route.js`) handle requests from the frontend. When the frontend asks for a random quote, the backend receives the request and queries Supabase.  
 
-## Deploy on Vercel
+- Database: Supabase hosts the PostgreSQL database. The backend uses the Supabase client to fetch quotes or handle user authentication.  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Communication Flow: Frontend sends a request to `/api/quotes`. Backend receives the request and queries Supabase. Supabase returns the data to the backend, which then responds to the frontend. The frontend displays the result to the user.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment
+
+You can deploy this Next.js app on Vercel. 
+Sign in to [Vercel](https://vercel.com/), import your GitHub repository, and Vercel will automatically detect the Next.js project. 
+Make sure your environment variables are set in Vercel. Click “Deploy” and your app will be live. The deployment URL will be provided by Vercel.
