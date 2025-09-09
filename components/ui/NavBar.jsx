@@ -9,7 +9,7 @@ export default function NavBar({ goHome, setShowSignUp, setShowLogin }) {
         style={{ backgroundColor: "#F9A8D4", height: "72px" }}
       >
         <div className="flex items-center gap-2">
-          <Image src="/logo.png" alt="Roar logo" width={48} height={48} />
+          <Image src="/logo.png" alt="Roar logo" width={120} height={125} />
           <span className="text-2xl font-bold text-white">ROAR</span>
         </div>
         <nav className="flex items-center gap-4">
